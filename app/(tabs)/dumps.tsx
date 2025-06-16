@@ -1,12 +1,17 @@
+import TopHeader from '@/components/TopHeader'
 import React from 'react'
-import { Text, View } from 'react-native'
+import { ScrollView, Text, View } from 'react-native'
 
-const dumps = () => {
+export default function dumps() {
   return (
-    <View>
-      <Text></Text>
+   
+    <View >
+      <TopHeader/>
+       <ScrollView>
+        <Text>go hddfdhddd</Text>
+       </ScrollView>
     </View>
+  
   )
 }
 
-export default dumps

@@ -1,10 +1,13 @@
+import TopHeader from '@/components/TopHeader'
 import React from 'react'
-import { Text, View } from 'react-native'
+import { View } from 'react-native'
 
 const profile = () => {
   return (
     <View>
-      <Text></Text>
+       <TopHeader
+            
+       />
     </View>
   )
 }

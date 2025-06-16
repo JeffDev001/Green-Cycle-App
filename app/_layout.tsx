@@ -1,6 +1,7 @@
 import { Stack, useRouter } from "expo-router";
 import { useEffect, useState } from "react";
 
+
 function RouteGuard ({ children } : {children: React.ReactNode}) {
     const router = useRouter();
     const [isReady, setIsReady] = useState(false);
@@ -13,7 +14,7 @@ function RouteGuard ({ children } : {children: React.ReactNode}) {
 
   useEffect (() => {
     if (isReady && !isAuth) {
-      router.replace("/auth")
+      router.replace("/splash")
     }
   }, [isReady]
 );
@@ -24,11 +25,14 @@ return <>{children}</>;
 
 export default function RootLayout() {
   return (
-  <RouteGuard>
-  <Stack initialRouteName= "auth">
+   <RouteGuard>
+  <Stack initialRouteName= "splash">
+    <Stack.Screen name="splash" options={{ headerShown: false }}></Stack.Screen>
+    <Stack.Screen name="auth" options={{ headerShown: false }}></Stack.Screen>
     <Stack.Screen name="(tabs)" options={{headerShown: false}}></Stack.Screen>
-    <Stack.Screen name="auth" options={{ headerShown: true }}></Stack.Screen>
   </Stack>
-  </RouteGuard>  
+   </RouteGuard>
+   
   )
 }
+

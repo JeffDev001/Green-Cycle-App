@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "GreenCycle",
+    "name": "Green Cycle",
     "slug": "GreenCycle",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/greencycle.png",
     "scheme": "greencycle",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
@@ -28,8 +28,8 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
+          "image": "./assets/images/greencycle.png",
+          "imageWidth": 100,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
