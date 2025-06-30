@@ -1,10 +1,11 @@
 import React from 'react'
 import { Text, View } from 'react-native'
 
-export default function recycling () {
+export default function reportdump () {
+
   return (
     <View>
-      <Text>go</Text>
+      <Text>reportdumpp</Text>
     </View>
   )
 }

@@ -12,11 +12,9 @@ export default function TopHeader () {
 
 const styles = StyleSheet.create ({
     header1 : {
-         height: 130,
-  //  padding: '12%',
-  //  marginBottom: '1%',
-   borderRadius: 20,
-   backgroundColor: '#4CC075'
+      height: 130,
+        borderRadius: 20,
+        backgroundColor: '#4CC075'
     }
 })
 

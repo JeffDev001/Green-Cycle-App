@@ -1,11 +1,12 @@
 import React from 'react'
 import { Text, View } from 'react-native'
 
-export default function recycling () {
+const maplist = () => {
   return (
     <View>
-      <Text>go</Text>
+      <Text>maplist</Text>
     </View>
   )
 }
 
+export default maplist

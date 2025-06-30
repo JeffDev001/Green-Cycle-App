@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 
 
+
+
 export default function Splashscreen() {
   const router = useRouter();
 
@@ -18,7 +20,7 @@ export default function Splashscreen() {
    <View style={styles.container}>
     
     <Image
-     source={require('../assets/images/greencycle.png')} 
+     source={require('../assets/images/greenpng.png')} 
      resizeMode='contain'
      style={styles.logo}
      />
@@ -43,11 +45,12 @@ const styles = StyleSheet.create({
   },
   text: {
     fontWeight: 400,
-    fontSize: 36,
+    fontSize: 25,
     color: 'white',
+    marginRight: '5%'
   },
   logo: {
-    width: 200,   
-    height: 200,
+    width: 100,   
+    height: 100,
   },
 });
