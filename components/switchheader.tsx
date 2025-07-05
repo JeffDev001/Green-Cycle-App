@@ -31,7 +31,7 @@ const SwitchHeader = ({ selectedTab, onSelectTab }: Props) => {
   );
 };
 
-export default SwitchHeader; // ✅ Make sure you're exporting the component
+export default SwitchHeader; 
 
 const styles = StyleSheet.create({
  container: {

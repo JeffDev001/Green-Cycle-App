@@ -2,7 +2,7 @@ import Entypo from '@expo/vector-icons/Entypo';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useRouter } from 'expo-router';
 import React, { useState } from 'react';
-import { Image, Linking, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Linking, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { Button, Text, TextInput } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -14,7 +14,6 @@ export default function AuthScreen() {
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
 
-
   const Handlelogin = () => {
     router.replace('/(tabs)')
   }
@@ -22,6 +21,7 @@ export default function AuthScreen() {
   const HandleSwitchMode = () => {
     setSelectedTab('signup');
   }
+
   const HandleOtherMode = () => {
     setSelectedTab('login');
   }
@@ -31,7 +31,6 @@ export default function AuthScreen() {
       <ScrollView>
         <View style={styles.container}>
           <View style={styles.topheader1}>
-            {/* Tab Header */}
             <View style={styles.tabContainer}>
               <TouchableOpacity
                 style={[
@@ -66,28 +65,24 @@ export default function AuthScreen() {
                 </Text>
               </TouchableOpacity>
             </View>
-            <View style={{flexDirection: 'row',}}>
-            <Text style={styles.greencycle}>Green Cycle</Text>
-            <Image
-                 source={require('../assets/images/greenpng.png')} 
-                 resizeMode='contain'
-                 style={styles.logo}
-                 />
+            <View style={{ flexDirection: 'row', }}>
+              <Text style={styles.greencycle}>Green Cycle</Text>
             </View>
-            
+
           </View>
 
           {selectedTab === 'login' ? (
             <View style={styles.emailview}>
-              <Text style={{marginLeft: 20, fontSize: 24, color:'white', fontWeight: 'bold', marginBottom: 10, textAlign: 'center'}}>Welcome Back👋</Text>
+              <Text style={{ marginLeft: 20, fontSize: 24, color: 'white', fontWeight: 'bold', marginBottom: 10, textAlign: 'center' }}>Welcome Back👋</Text>
               <Text style={styles.email}>Email</Text>
               <View style={styles.emailonly}>
                 <TextInput
                   style={styles.input}
+                  value={email}
                   placeholder="example@gmail.com"
                   autoComplete="email"
                   autoCapitalize='none'
-                  mode='outlined'
+                  mode='flat'
                   onChangeText={setEmail}
                 />
               </View>
@@ -100,20 +95,23 @@ export default function AuthScreen() {
                   value={password}
                   autoComplete="current-password"
                   secureTextEntry={!showPassword}
-                  mode='outlined'
+                  mode='flat'
                   onChangeText={setPassword}
                 />
-                <TouchableOpacity onPress={() => setShowPassword(!showPassword)} style={{ position: 'absolute', right: 10 }}>
-                  <Ionicons name={showPassword ? 'eye-sharp' : 'eye-off'} size={20} />
+                <TouchableOpacity onPress={() => setShowPassword(!showPassword)} style={{ position: 'absolute', right: 10, marginBottom: 10 }}>
+                  <Ionicons name={showPassword ? 'eye-sharp' : 'eye-off'} size={22} />
                 </TouchableOpacity>
               </View>
 
+              
               <Button onPress={Handlelogin} style={styles.button} mode='contained'>{selectedTab === 'login' ? "Log In" : null}</Button>
-              <Button style={styles.switchbutton} mode='contained-tonal' onPress={HandleSwitchMode}>
-                {selectedTab === 'login' ? "Don't have an account? Create Account" : "Already have an account? Log In"} </Button>
               <TouchableOpacity>
                 <Text style={styles.fpassword}>Forgot Password?</Text>
               </TouchableOpacity>
+
+              <TouchableOpacity style={styles.switchbutton}  onPress={HandleSwitchMode}><Text style={{color: '#fff', fontWeight: 'bold'}}>
+                {selectedTab === 'login' ? "Don't have an account? Create Account" : "Already have an account? Log In"} </Text></TouchableOpacity>
+              
             </View>
 
           ) : (
@@ -125,7 +123,7 @@ export default function AuthScreen() {
                   placeholder="example@gmail.com"
                   // autoComplete="email"
                   autoCapitalize='none'
-                  mode='outlined'
+                  mode='flat'
                   onChangeText={setEmail}
                 />
               </View>
@@ -138,23 +136,23 @@ export default function AuthScreen() {
                   autoCapitalize='none'
                   autoComplete="current-password"
                   secureTextEntry={!showPassword}
-                  mode='outlined'
+                  mode='flat'
                   onChangeText={setPassword}
                 />
                 <TouchableOpacity onPress={() => setShowPassword(!showPassword)} style={{ position: 'absolute', right: 10 }}>
-                  <Ionicons name={showPassword ? 'eye-sharp' : 'eye-off'} size={20}  />
+                  <Ionicons name={showPassword ? 'eye-sharp' : 'eye-off'} size={20} />
                 </TouchableOpacity>
               </View>
 
               <Button onPress={Handlelogin} style={styles.button} mode='contained'> {selectedTab === 'signup' ? "Create account" : "Log In"} </Button>
-              <Button style={styles.switchbutton} mode='contained-tonal' onPress={HandleOtherMode} >
-                {selectedTab === 'signup' ? "Already have an account? Log In" : "Don't have an account? Create Account"}
-              </Button>
+              <TouchableOpacity style={styles.switchbutton1} onPress={HandleOtherMode} ><Text style={{color: '#fff', fontWeight: 'bold'}}> 
+                {selectedTab === 'signup' ? "Already have an account? Log In" : "Don't have an account? Create Account"}</Text>
+              </TouchableOpacity>
 
             </View>
 
           )}
-          
+
           <View>
             <Text style={styles.text}>By signing up you agree to our Terms and Conditions & Privacy Policy, Read below</Text>
           </View>
@@ -190,8 +188,8 @@ const styles = StyleSheet.create({
     marginTop: '15%',
     marginBottom: '-1%'
   },
-logo: {
-    width: 50,   
+  logo: {
+    width: 50,
     height: 50,
     marginTop: 55,
   },
@@ -237,6 +235,10 @@ logo: {
     justifyContent: 'center',
     flex: 1,
     paddingRight: 30,
+    borderWidth: 1,
+    borderStyle: 'solid',
+    borderColor: '#4CC075',
+    backgroundColor: '#fff',
   },
   email: {
     fontSize: 20,
@@ -246,7 +248,7 @@ logo: {
   },
   emailview: {
     padding: '10%',
-    height: 380,
+    height: 420,
     width: 360,
     marginTop: '20%',
     alignSelf: 'center',
@@ -269,9 +271,15 @@ logo: {
   switchbutton: {
     marginTop: 15,
     backgroundColor: '#5FD288',
-    color: '#fff'
-
-
+    color: '#fff',
+    marginHorizontal: 15,
+    marginBottom: 18
+  },
+  switchbutton1: {
+    marginTop: 15,
+    backgroundColor: '#5FD288',
+    color: '#fff',
+    marginHorizontal: 30,
   },
   button: {
     marginTop: 10,
@@ -332,9 +340,12 @@ logo: {
   fpassword: {
     justifyContent: 'center',
     alignSelf: 'center',
-    color: 'white',
+    textAlign: 'center',
+    color: '#fff',
+    padding: 6,
     fontWeight: '700',
-    fontSize: 18
+    fontSize: 15,
+    marginTop: 14,
 
 
   }

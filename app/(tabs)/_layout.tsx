@@ -7,12 +7,9 @@ import SimpleLineIcons from '@expo/vector-icons/SimpleLineIcons';
 import { Tabs, useRouter } from "expo-router";
 import { Alert, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
+
 export default function TabsLayout() {
   const router = useRouter()
-
-  const HandleLogoutButtonPress = () => {
-   
-  }
 
  const HandleLogout = () => {
    Alert.alert('Logout', 
@@ -31,6 +28,10 @@ export default function TabsLayout() {
   { cancelable: false }
  )
 }
+
+ const InfoButtonPress = () => {
+    router.push('/aboutus')
+  }
 
 
   return (
@@ -53,7 +54,7 @@ export default function TabsLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          headerShown: true, headerRight: () => <Octicons name="info" size={20} color="white" />,
+          headerShown: true, headerRight: () => <TouchableOpacity><Octicons name="info" size={20} color="white" onPress={InfoButtonPress}/></TouchableOpacity>,
           title: "Home", tabBarIcon: ({ color, focused }) => {
             return focused ? (
               <Ionicons name="home" size={24} color={color} />

@@ -1,12 +1,16 @@
 import AntDesign from '@expo/vector-icons/AntDesign';
 import Entypo from '@expo/vector-icons/Entypo';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import Ionicons from '@expo/vector-icons/Ionicons';
 import { useRouter } from 'expo-router';
 import React from 'react';
 import { ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { Button, Surface, Text } from 'react-native-paper';
 import FloatingAddImageButton from '../../components/FloatingAddImageButton';
 import Separator from '../../components/Separator';
+
+
 
 
 
@@ -17,15 +21,15 @@ export default function index() {
     router.push('/camerascreen')
   }
 
-
+ 
   return (
-    <View style={{backgroundColor: '#f5f5f5'}}>
-      <ScrollView>
+    <View style={{ backgroundColor: '#f5f5f5' }}>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View style={style.container}>
           <Surface style={{ marginTop: 20, width: 90, height: 90, borderRadius: 45, alignItems: 'center', backgroundColor: 'gray', opacity: 0.5, shadowOpacity: 0, justifyContent: 'center', alignSelf: 'center' }}>
             <TouchableOpacity onPress={HandleCameraPress}>
               <View style={{ alignSelf: 'center', opacity: 1 }}  >
-                <FontAwesome5 name="camera-retro" size={60} color="black" />
+                <FontAwesome5 name="camera" size={60} color="black" />
               </View>
             </TouchableOpacity>
           </Surface>
@@ -52,10 +56,25 @@ export default function index() {
         </Surface>
         <Text style={{ alignSelf: 'center', fontSize: 16, fontWeight: 'bold', marginTop: 30 }}>Nearest Collection Points</Text>
         <Surface style={{
-          backgroundColor: '#4CC075', margin: 21, marginTop: 5, borderRadius: 10, height: 200, width: 370
+          backgroundColor: '#4CC075', margin: 21, marginTop: 5, borderRadius: 10, height: 200, width: 370, paddingBottom: 10
         }}>
+
           <View>
-            <Text>.</Text>
+            <TouchableOpacity style={{ backgroundColor: '#fff', height: 70, width: 80, marginTop: 20, marginLeft: 10, marginRight: '7%', alignItems: 'center', borderRadius: 3, flexDirection: 'row', gap: 250, paddingLeft: 4 }}>
+              <Ionicons name="trash" size={70} color="#4CC075" />
+              <Ionicons name="arrow-forward" size={24} color="#fff" />
+            </TouchableOpacity>
+
+          </View>
+          {/* <View style={{ marginTop: 5}}> */}
+            <Separator />
+          {/* </View> */}
+
+          <View >
+            <TouchableOpacity style={{ backgroundColor: '#fff', height: 75, width: 80, marginTop: 1, marginLeft: 10, marginRight: '7%', alignItems: 'center', borderRadius: 3, padding: 10, flexDirection: 'row', gap: 250 }}>
+              <FontAwesome name="recycle" size={60} color="#4CC075" />
+              <Ionicons name="arrow-forward" size={24} color="#fff" />
+            </TouchableOpacity>
           </View>
         </Surface>
         <Text style={{ alignSelf: 'center', fontSize: 16, fontWeight: 'bold', marginTop: 20 }}>TrashHunter</Text>
@@ -71,7 +90,7 @@ export default function index() {
         <Text style={{ alignSelf: 'center', fontSize: 16, fontWeight: 'bold', marginTop: 20 }}>Statistics</Text>
         <Text style={{ alignSelf: 'center', fontWeight: '300', opacity: 0.5 }}>Number of Dumps Worldwide</Text>
         <Surface style={{
-          backgroundColor: '#4CC075', margin: 25, marginTop: 5, borderRadius: 10, 
+          backgroundColor: '#4CC075', margin: 25, marginTop: 5, borderRadius: 10,
         }}>
           <View>
             <View style={{ flexDirection: 'row', margin: 4 }}>
@@ -94,10 +113,19 @@ export default function index() {
   )
 }
 
+
 const style = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#f5f5f5'
+  },
+  container1: {
+    flex: 1,
+    justifyContent: 'center',
+  },
+  message: {
+    textAlign: 'center',
+    paddingBottom: 10,
   },
   camera: {
     alignItems: 'center',
@@ -117,6 +145,10 @@ const style = StyleSheet.create({
     backgroundColor: '#4CC075',
     margin: 25,
     borderRadius: 5,
-  }
+  },
 })
+
+function setUri(uri: string) {
+  throw new Error('Function not implemented.');
+}
 

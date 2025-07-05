@@ -4,8 +4,6 @@ import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 
 export default function MapViewComponent() {
-   
-
     const [location, setLocation] = useState<Location.LocationObject | null>(null);
       const [loading, setLoading] = useState(true);
     
